@@ -104,7 +104,7 @@ while best_fitness < 3.95:
         individuals=pop,
         k=math.floor(len(pop) * survival_threshold),
         fitness_size=5,
-        parsimony_size=1.8,
+        parsimony_size=1.5,
         fitness_first=True
     )
 
@@ -125,10 +125,10 @@ while best_fitness < 3.95:
     genome_length = np.array(list(map(lambda genome: len(genome), pop)))
     avg_length = np.mean(genome_length)
 
-    print('-'*80)
     print(f'generation: {gen}, best_fitness: {best_fitness}')
     print(f'best_genome: {best_genome}')
     print(f'avg_length: {avg_length}')
+    print('-'*80)
 
 nn = encoding.initialize(best_genome, layer_defs)
 for input in input_data:
