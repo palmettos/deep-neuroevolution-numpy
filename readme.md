@@ -11,3 +11,7 @@ This is a very minimal implementation of [deep neuroevolution](https://arxiv.org
 - More mutation operators are experimentally implemented: add, drop and mutate seed value
 - The seed values are just unsigned 64-bit integers. The original paper describes a method to control the size of the seed values, but I have not implemented this yet
 - Only FC feedforward layers are currently supported, but I'm planning on adding more types of layers
+
+# Todo
+- Use gnumpy to evaluate the forward pass on the GPU
+- Improve layer & parameter configuration to encapsulate per experiment
