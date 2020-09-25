@@ -3,7 +3,7 @@ from deap import creator
 from deap import tools
 import random
 import numpy as np
-import encoding
+from encoding import encoding
 import math
 
 pop_size = 500

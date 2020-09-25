@@ -30,9 +30,9 @@ def mutate_genome(genome, mutate_options):
 def apply_phenotype_mutation(seed, phenotype):
     rng = np.random.default_rng(seed)
     for layer in phenotype:
-        weight_noise = rng.normal(0., 0.1, layer['weights'].shape)
+        weight_noise = rng.normal(0., 0.01, layer['weights'].shape)
         layer['weights'] += weight_noise
-        bias_noise = rng.normal(0., 0.1, layer['biases'].shape)
+        bias_noise = rng.normal(0., 0.01, layer['biases'].shape)
         layer['biases'] += bias_noise
     return phenotype
 
@@ -47,7 +47,7 @@ def initialize(genome, layer_defs):
         curr_layer_node_count = layer_defs[curr]['nodes']
         layer = {
             'name': layer_defs[curr]['name'],
-            'weights': rng.normal(0., 1/prev_layer_node_count, (prev_layer_node_count, curr_layer_node_count)),
+            'weights': rng.normal(0., np.sqrt(1/prev_layer_node_count), (prev_layer_node_count, curr_layer_node_count)),
             'biases': np.zeros(curr_layer_node_count),
             'activation': layer_defs[curr]['activation']
         }
